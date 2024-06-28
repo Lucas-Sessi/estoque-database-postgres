@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db_estoque_postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: database-estoque
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data_estoque:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_estoque:
+    driver: local
